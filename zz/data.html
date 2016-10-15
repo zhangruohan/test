@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin-top: 100px;
+        }
+        table{
+            border: 1px solid lightcoral;
+            margin:0px auto;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var province = [
+            ['北京',1],['天津',2],['河北',2],['山西',3],['内蒙古',5],['辽宁',2],['吉林',4],['黑龙江',4],['上海',1],['江苏',1],
+            ['浙江',1], ['安徽',3],['福建',3],['江西',4],['山东',1],['河南',3],['湖北',2],['湖南',2],['广东',1],['广西',4],
+            ['海南',5],['重庆',3],['四川',2],['贵州',4],['云南',4],['西藏',5],['陕西',3],['甘肃',5],['青海',5],['宁夏',5],
+            ['新疆',5]
+        ];
+        var target = [-1,0,1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21,22];
+//        var target = [-1,0,1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,26];
+//        var target = [-1,0,1,2,8,9,10,12,14,18];
+        var tag = ['总收入','增加值','投资方','投资额'];
+//        var data = [
+//                [50.2,8.9,74,1325,52.9,16.2],
+//                [59.8,9.6,74,1427,67.7,16.7],
+//                [76.6,16.8,80,1545,74.6,17.1],
+//                [100.5,23.9,88,1687,91.9,20.8],
+//                [153.6,53.1,91,2000,91.2,26.6],
+//                [178.1,24.5,154,2800,118.6,39.3],
+//                [209.6,31.5,231,3680,198.3,42.9],
+//                [277.1,67.5,273,4583,229.8,51.7],
+//                [363.7,86.6,388,5813,201.5,53.8],
+//                [518.4,154.7,449,6494,278.2,64.7]
+//         ];
+//        var data = [
+//            [50.2,8.9,900,52.9],
+//            [59.8,9.6,1206,67.7],
+//            [76.6,16.8,1218,74.6],
+//            [100.5,23.9,1368,91.9],
+//            [153.6,53.1,1578,91.2],
+//            [178.1,24.5,1674,118.6],
+//            [209.6,31.5,2235,198.3],
+//            [277.1,67.5,1914,229.8],
+//            [363.7,86.6,1854,201.5],
+//            [518.4,154.7,2058,278.2]
+//        ];
+        var data = [
+            [50.2,8.9,300,52.9],
+            [59.8,9.6,402,67.7],
+            [76.6,16.8,406,74.6],
+            [100.5,23.9,456,91.9],
+            [153.6,53.1,526,91.2],
+            [178.1,24.5,558,118.6],
+            [209.6,31.5,745,198.3],
+            [277.1,67.5,638,229.8],
+            [363.7,86.6,618,201.5],
+            [518.4,154.7,686,278.2]
+        ];
+//        var data = [
+//            [758.26],
+//            [771.43],
+//            [955.13],
+//            [1238.32],
+//            [1392.57],
+//            [1704.64],
+//            [2074.79],
+//            [2339.94],
+//            [2468.48],
+//            [2699.44]
+//        ];
+//        var data = [
+//            [12.68],
+//            [12.99],
+//            [12.96],
+//            [13.45],
+//            [13.39],
+//            [13.36],
+//            [13.83],
+//            [14.54],
+//            [14.94],
+//            [15.66]
+//        ];
+        var sortNumber = function(a,b){
+            return b - a;
+        };
+        var num;
+        var randomMate = function (type,y) {
+            switch(type){
+                case 1:
+                    num = Math.floor(Math.random()*6);
+                    break;
+                case 2:
+                    num = 6 + Math.floor(Math.random()*6);
+                    break;
+                case 3:
+                    num = 12 + Math.floor(Math.random()*6);
+                    break;
+                case 4:
+                    num = 18 + Math.floor(Math.random()*6);
+                    break;
+                case 5:
+                    num = 24 + Math.floor(Math.random()*7);
+                    break;
+            }
+            if(compareArr[y][num] === null){
+                randomMate(type,y);
+            }else{
+                compareArr[y][num] = null;
+            }
+            return num;
+        }
+        var year = 2006,random,randomArr = [],randomSum = 0,rate,result,resultArr = [],index,compareArr = [],everyYearIncome = [],everyYearAddValue = [];
+        var table,cow,unit;
+        for(var i=0;i<data.length;i++){
+            for(var j=0;j<data[i].length;j++){
+                randomSum = 0;
+                resultArr[j] = [];
+                compareArr[j] = [];
+                for(var k=0;k<31;k++){
+                    random = Math.random();
+                    randomArr[k] = random;
+                    randomSum += random;
+                }
+                for(var m=0;m<31;m++){
+                    rate = randomArr[m]/randomSum;
+                    result = (j === 2)? Math.ceil(data[i][j]*rate):parseFloat((data[i][j]*rate).toFixed(2));
+                    resultArr[j][m] = result;
+                    compareArr[j][m] = m;
+                }
+                resultArr[j].sort(sortNumber);
+            }
+            table = document.createElement('table');
+//            for(var x=-1;x<31;x++){
+//                cow = document.createElement('tr');
+//                for(var y=-1;y<data[i].length;y++){
+//                    if(x === -1){
+//                        unit = document.createElement('th');
+//                        unit.textContent = (y === -1)? (year + i):tag[y];
+//                    }else{
+//                        unit = document.createElement('td');
+//                        if(y === -1){
+//                            unit.textContent = province[x][0];
+//                        }else{
+//                            index = randomMate(province[x][1],y);
+//                            unit.textContent = resultArr[y][index];
+//                        }
+//                    }
+//                    cow.appendChild(unit);
+//                }
+//                table.appendChild(cow);
+//            }
+            everyYearIncome[i] = [];
+            everyYearAddValue[i] = [];
+            for(var x=-1;x<31;x++){
+                cow = document.createElement('tr');
+                for(var y=0;y<data[i].length;y++){
+                    if(x === -1){
+                        unit = document.createElement('th');
+                        unit.textContent = tag[y];
+                    }else{
+                        unit = document.createElement('td');
+                        index = randomMate(province[x][1],y);
+                        if(y === 0){
+                            if(i> 0 && resultArr[y][index] < everyYearIncome[i - 1][x]){
+                                resultArr[y][index] = parseFloat((everyYearIncome[i - 1][x] + Math.random()*0.1).toFixed(2));
+                            }
+                            everyYearIncome[i][x] = resultArr[y][index];
+                        }
+                        if(y === 1){
+                            if(i> 0 && resultArr[y][index] < everyYearAddValue[i - 1][x]){
+                                resultArr[y][index] = parseFloat((everyYearAddValue[i - 1][x] + Math.random()*0.1).toFixed(2));
+                            }
+                            everyYearAddValue[i][x] = resultArr[y][index];
+                        }
+                        unit.textContent = resultArr[y][index];
+//                        if(i > 0 && y === 1){
+//                            agentNum = parseFloat((everyYearIncome[i][x] - everyYearIncome[i - 1][x]).toFixed(3));
+//                            if(agentNum < 0){
+//                                agentNum = 0.001;
+//                            }
+//                            unit.textContent = agentNum;
+//                            unit.textContent = parseFloat((everyYearIncome[i][x] - everyYearIncome[i - 1][x]).toFixed(3));
+//                        }else{
+//                            unit.textContent = resultArr[y][index];
+//                        }
+                    }
+                    cow.appendChild(unit);
+                }
+                if(target.indexOf(x) !== -1){
+                    table.appendChild(cow);
+                }
+            }
+            document.body.appendChild(table);
+        }
+
+    </script>
+</body>
+</html>

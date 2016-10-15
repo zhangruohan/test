@@ -1,0 +1,23 @@
+{
+    "name": "WhatsApp",
+    "version": "1.1.2",
+    "type":"simple",
+    "guid": "c308a347cadcfbc74c43505110fb6f59",
+    "icons": {
+        "16" : "",
+        "48" : "",
+        "128": ""
+    },
+    "permissions": ["readEmailData", "sendEmail"],
+    "resource": [],
+    "pageScripts":[
+        {
+            "pages": ["simple"],
+            "js": ["js/googleAnalysis.js", "js/pluginExAPI.js" ,"js/monitor.js"]
+        },
+        {
+            "pages": ["emailgroup"],
+            "js": ["js/pluginEx.js"]
+        }
+    ]
+}

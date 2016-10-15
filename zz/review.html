@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var x,y,z = [1,3,7,14,29];
+        var oneDay = 86400000;
+        var today = new Date().getTime();
+        var startDay = new Date(2016,7,29).getTime();
+        var period = Math.floor((today - startDay)/oneDay);
+        var justify = function (x) {
+            return x < 10 ? '0' + x : x;
+        }
+        for(var i=0;i<period;i++){
+            x = startDay + i*oneDay;
+            for(var j=0;j<z.length;j++){
+                if(x + z[j]*oneDay < today && x + (z[j] + 1)*oneDay > today){
+                    y = document.createElement('div');
+                    y.innerText = (new Date(x)).getFullYear() + '.' + justify((new Date(x)).getMonth() + 1) + '.' + justify((new Date(x)).getDate());
+                    document.body.appendChild(y);
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

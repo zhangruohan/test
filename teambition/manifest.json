@@ -1,0 +1,23 @@
+{
+    "name": "Teambition",
+    "version": "1.1.1",
+    "type":"simple",
+    "guid": "cb93d44913cb48er85b942810fc19788",
+    "icons": { 
+        "16" : "",
+        "48" : "",
+        "128": ""
+    },
+    "permissions": ["readEmailData", "sendEmail"],
+    "resource": [],
+    "pageScripts":[ 
+        {
+            "pages": ["simple"],
+            "js": ["js/googleAnalysis.js","js/pluginExAPI.js","js/monitor.js"]
+        },
+        {
+            "pages": ["emailgroup"],
+            "js": ["js/pluginEx.js"]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "highlight",
+    "version": "2.0.3",
+    "guid": "e712ee88e258d8eb9423cf3adad7d759",
+    "icons": { 
+    },
+    "permissions": ["readEmailData", "sendEmail"],
+    "resource": [
+    ],
+    "pageScripts":[ 
+        {
+            "pages": ["editor"],
+            "css": ["css/hlStart.css"],
+            "js": ["js/highlight.js","js/hlStart.js"]
+        }
+    ]
+}

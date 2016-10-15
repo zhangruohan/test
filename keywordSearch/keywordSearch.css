@@ -1,0 +1,39 @@
+#ms_group{display:none;position:fixed;top:7px;right:13px;font:12px "Microsoft YaHei";width:238px;height:32px;border:1px solid #bbb;border-radius:4px;box-shadow: 0px 0px 1px 1px #c8c8c8;margin:auto;padding-left:6px;background:#fff }
+#ms_search_1,#ms_search_2{height:20px;outline:none;border:1px solid #bbb;position:relative;top:-11px;[;top:4px;]}
+#ms_search_1{width:102px;border-radius:4px 0px 0px 4px;border-right:none !important;padding-left:5px;color:#000}
+#ms_search_2{width:62px;border-left:none !important;text-align: center;color:#969696}
+#ms_search_3,#ms_search_4,#ms_search_5{width:22px;height:24px;border:1px solid #999;border-left:none;outline:none;cursor:pointer;position:relative;top:-5px;[;top:2px;]}
+#ms_search_3{background:#fff url(img/ms_previous.png) no-repeat center;background-size:10px 6px;border-right:none}
+#ms_search_4{background:#fff url(img/ms_next.png) no-repeat center;background-size:10px 6px;border-radius:0px 4px 4px 0px}
+#ms_search_5{border:none;background:#fff url(img/ms_close.png) no-repeat center;background-size:8px 8px;height:32px;top:0px;[;height:28px;]}
+#ms_search{display:none;position:absolute;z-index:100;width:24px;height:24px;background:#fff url(img/ms_search.png) no-repeat center;background-size:24px 24px;cursor:pointer}
+#ms_search_3:hover{background-image:url(img/ms_previous_hover.png)}
+#ms_search_4:hover{background-image:url(img/ms_next_hover.png)}
+#ms_search_5:hover{background-image:url(img/ms_close_hover.png);background-size:14px 14px}
+#ms_search:hover{background-image:url(img/ms_search_hover.png)}
+.ms_text_span{background:#ffff00}
+.ms_selected{background:#ff9632 !important}
+@media
+(-webkit-min-device-pixel-ratio: 1.48),
+(min-resolution: 144dpi){
+    #ms_search_3{background-image:url(img/ms_previous_1.5.png)}
+    #ms_search_4{background-image:url(img/ms_next_1.5.png)}
+    #ms_search_5{background-image:url(img/ms_close_1.5.png)}
+    #ms_search{background-image:url(img/ms_search_1.5.png)}
+    #ms_search_3:hover{background-image:url(img/ms_previous_hover_1.5.png)}
+    #ms_search_4:hover{background-image:url(img/ms_next_hover_1.5.png)}
+    #ms_search_5:hover{background-image:url(img/ms_close_hover_1.5.png)}
+    #ms_search:hover{background-image:url(img/ms_search_hover_1.5.png)}
+}
+@media
+(-webkit-min-device-pixel-ratio: 1.98),
+(min-resolution: 192dpi) {
+    #ms_search_3{background-image:url(img/ms_previous_2.png)}
+    #ms_search_4{background-image:url(img/ms_next_2.png)}
+    #ms_search_5{background-image:url(img/ms_close_2.png)}
+    #ms_search{background-image:url(img/ms_search_2.png)}
+    #ms_search_3:hover{background-image:url(img/ms_previous_hover_2.png)}
+    #ms_search_4:hover{background-image:url(img/ms_next_hover_2.png)}
+    #ms_search_5:hover{background-image:url(img/ms_close_hover_2.png)}
+    #ms_search:hover{background-image:url(img/ms_search_hover_2.png)}
+}

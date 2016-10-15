@@ -1,0 +1,17 @@
+{
+    "name": "keywordSearch", 
+    "version": "2.0.0",
+    "guid": "7349d11b2920b4641e4035b2dbf60cdb",
+    "icons": { 
+    },
+    "permissions": ["readEmailData", "sendEmail"],
+    "resource": [
+    ],
+    "pageScripts":[ 
+        {
+            "pages": ["emailgroup"], 
+            "css": ["keywordSearch.css"],
+            "js": ["keywordSearch.js"]
+        }
+    ]
+}
